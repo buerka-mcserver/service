@@ -7,5 +7,15 @@
     "user": "root",
     "password": "admin123",
     "database": "test"
-  }
+  },
+  "getServerStatus": [
+    {
+      "key": 1,
+      "type": "je",
+      "name": "je服",
+      "host": "string",
+      "port": "number",
+      "crontab": "* * * * * *"
+    }
+  ]
 }

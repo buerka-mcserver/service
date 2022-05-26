@@ -1,5 +1,6 @@
 import express from 'express'
 import config from './utils/config'
+import './service/crontab'
 
 const app = express()
 
