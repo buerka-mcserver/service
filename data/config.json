@@ -6,16 +6,16 @@
     "port": 3306,
     "user": "root",
     "password": "admin123",
-    "database": "test"
+    "database": "mc-server"
   },
   "getServerStatus": [
     {
       "key": 1,
       "type": "je",
       "name": "je服",
-      "host": "string",
-      "port": "number",
-      "crontab": "* * * * * *"
+      "host": "play.moonmc.cn",
+      "port": 25565,
+      "crontab": "0 * * * * *"
     }
   ]
 }

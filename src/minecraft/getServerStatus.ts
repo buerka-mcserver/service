@@ -8,7 +8,6 @@ const getBeStatus = async (ip: string, port = 19132) => {
     })
     return {
       code: 200,
-      type: 'be',
       status: true,
       motd: res.motd.clean,
       max: res.players.max,
@@ -32,7 +31,6 @@ const getJeStatus = async (ip: string, port = 25565) => {
     })
     return {
       code: 200,
-      type: 'je',
       status: true,
       motd: res.motd.clean,
       max: res.players.max,
@@ -53,11 +51,38 @@ export const getServerStatus = (
   type: 'je' | 'be',
   ip: string,
   port: number
-) => {
-  if (type == 'be') {
-    return getBeStatus(ip, port)
-  } else if (type == 'je') {
+): Promise<
+  | {
+      code: number
+      status: boolean
+      motd: string
+      max: number
+      online: number
+      version: string
+      agreement: number
+      sample?: {
+        name: string
+        id: string
+      }[]
+    }
+  | {
+      code: number
+      status: boolean
+      motd?: undefined
+      max?: undefined
+      online?: undefined
+      version?: undefined
+      agreement?: undefined
+      sample?: {
+        name: string
+        id: string
+      }[]
+    }
+> => {
+  if (type == 'je') {
     return getJeStatus(ip, port)
+  } else if (type == 'be') {
+    return getBeStatus(ip, port)
   }
 }
 
