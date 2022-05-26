@@ -1,5 +1,6 @@
 import express from 'express'
 import config from './utils/config'
+import { logger } from './utils/log'
 import './service/crontab'
 
 const app = express()
@@ -9,5 +10,5 @@ app.get(config.baseUrl, (req, res) => {
 })
 
 app.listen(config.port, () => {
-  console.log('http://localhost:3000')
+  logger.info(`http://localhost:${config.port}`)
 })
